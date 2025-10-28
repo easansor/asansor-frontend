@@ -1181,13 +1181,13 @@ const handleAdminGiris = () => {
 };
 
                 return (
-                    <div className="min-h-screen flex items-center justify-center p-6" style={{background: 'linear-gradient(to bottom right, #702a29, #5a2221)'}}>
-                        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full">
+                    div className="min-h-screen flex items-center justify-center p-2 sm:p-4" style={{background: 'linear-gradient(to bottom right, #702a29, #5a2221)'}}>
+                        <div className="bg-white rounded-2xl shadow-2xl p-4 sm:p-8 w-full max-w-md">
                             <div className="text-center mb-8">
                                 <div className="inline-block p-4 bg-gradient-to-br from-red-800 to-red-900 rounded-full shadow-xl mb-4">
                                     <Icon name={adminGirisi ? "shield" : "user"} size={48} className="text-white" />
                                 </div>
-                                <h1 className="text-3xl font-bold text-gray-800 mb-2">E-Asansör Sistemi</h1>
+                                <h1 className="text-xl sm:text-3xl font-bold text-gray-800 mb-2">E-Asansör Sistemi</h1>
                                 <p className="text-gray-600">{adminGirisi ? 'Admin Girişi' : 'Kullanıcı Girişi'}</p>
                             </div>
 
@@ -1198,7 +1198,7 @@ const handleAdminGiris = () => {
                                         <input
                                             id="loginKullaniciAdi"
                                             type="text"
-                                            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-800"
+                                            className="w-full border border-gray-300 rounded-lg px-3 py-2 sm:px-4 sm:py-3 focus:outline-none focus:ring-2 focus:ring-red-800 text-sm sm:text-base"
                                             placeholder="Kullanıcı adınız"
                                         />
                                     </div>
@@ -1207,17 +1207,17 @@ const handleAdminGiris = () => {
                                         <input
                                             id="loginSifre"
                                             type="password"
-                                            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-800"
+                                            className="w-full border border-gray-300 rounded-lg px-3 py-2 sm:px-4 sm:py-3 focus:outline-none focus:ring-2 focus:ring-red-800 text-sm sm:text-base"
                                             placeholder="Şifreniz"
                                             onKeyPress={(e) => e.key === 'Enter' && handleGiris()}
                                         />
                                     </div>
                                     <button
-                                        onClick={handleGiris}
-                                        className="w-full bg-gradient-to-r from-red-800 to-red-900 text-white py-3 rounded-lg hover:from-red-900 hover:to-red-950 transition font-semibold"
-                                    >
-                                        Giriş Yap
-                                    </button>
+    onClick={handleGiris}
+    className="w-full bg-gradient-to-r from-red-800 to-red-900 text-white py-2.5 sm:py-3 rounded-lg hover:from-red-900 hover:to-red-950 transition font-semibold text-sm sm:text-base"
+>
+    Giriş Yap
+</button>
                                     <div className="text-center">
                                         <button
                                             onClick={() => setAdminGirisi(true)}
@@ -1238,20 +1238,22 @@ const handleAdminGiris = () => {
                                         <input
                                             id="adminKullaniciAdi"
                                             type="text"
-                                            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-800"
+                                            className="w-full border border-gray-300 rounded-lg px-3 py-2 sm:px-4 sm:py-3 focus:outline-none focus:ring-2 focus:ring-red-800 text-sm sm:text-base"
                                             placeholder="Admin kullanıcı adı"
                                         />
                                     </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Admin Şifre</label>
-                                        <input
-                                            id="adminSifre"
-                                            type="password"
-                                            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-red-800"
-                                            placeholder="Admin şifre"
-                                            onKeyPress={(e) => e.key === 'Enter' && handleAdminGiris()}
-                                        />
-                                    </div>
+                                   <div>
+    <label className="block text-sm font-medium text-gray-700 mb-2">Admin Şifre</label>
+    <input
+        id="adminSifre"
+        type="password"
+        autoFocus
+        inputMode="text"
+        className="w-full border border-gray-300 rounded-lg px-3 py-2 sm:px-4 sm:py-3 focus:outline-none focus:ring-2 focus:ring-red-800 text-sm sm:text-base"
+        placeholder="Admin şifre"
+        onKeyPress={(e) => e.key === 'Enter' && handleAdminGiris()}
+    />
+</div>
                                     <button
                                         onClick={handleAdminGiris}
                                         className="w-full bg-gradient-to-r from-red-800 to-red-900 text-white py-3 rounded-lg hover:from-red-900 hover:to-red-950 transition font-semibold"
@@ -1838,15 +1840,17 @@ className="flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded hover
                                             />
                                         </div>
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Şifre</label>
-                                            <input
-                                                type="password"
-                                                value={yeniKullanici.sifre}
-                                                onChange={(e) => setYeniKullanici({...yeniKullanici, sifre: e.target.value})}
-                                                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-800"
-                                                placeholder="Şifre"
-                                            />
-                                        </div>
+    <label className="block text-sm font-medium text-gray-700 mb-2">Şifre</label>
+    <input
+        id="loginSifre"
+        type="password"
+        autoFocus
+        inputMode="text"
+        className="w-full border border-gray-300 rounded-lg px-3 py-2 sm:px-4 sm:py-3 focus:outline-none focus:ring-2 focus:ring-red-800 text-sm sm:text-base"
+        placeholder="Şifreniz"
+        onKeyPress={(e) => e.key === 'Enter' && handleGiris()}
+    />
+</div>
                                         
                                         <div className="flex items-end">
                                             <button
@@ -7903,55 +7907,59 @@ const kalanGun = Math.floor((ruhsatBitisBaslangic - bugunBaslangic) / (1000 * 60
     backgroundAttachment: 'fixed'
 }}>
                     <div className="max-w-7xl mx-auto">
-                        <div className="mb-6 bg-gradient-to-r from-green-400 to-green-500 rounded-xl p-4 flex items-center justify-between shadow-lg">
-                            <div className="flex items-center gap-3">
-                                <div className="w-4 h-4 bg-white rounded-full animate-pulse shadow-lg"></div>
-                                <span className="text-white font-semibold text-lg">Sistem Aktif - Hoşgeldiniz {kullaniciAdi}</span>
-                           {notlarModalAcik && <NotlarModal />} {/* ✅ YENİ */}
-                                </div>
-                            <div className="flex items-center gap-3">
-                                <span className="text-xs text-white bg-green-600 px-3 py-1 rounded-full">API: {API_URL}</span>
-                                {adminMi && (
-    <button onClick={() => setActiveModule('admin')} className="flex items-center gap-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 transition">
-        <Icon name="userGroup" size={18} />Admin Panel
+                        <div className="mb-4 sm:mb-6 bg-gradient-to-r from-green-400 to-green-500 rounded-xl p-2 sm:p-4 shadow-lg">
+    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
+        <div className="flex items-center gap-2 sm:gap-3">
+            <div className="w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-full animate-pulse shadow-lg"></div>
+            <span className="text-white font-semibold text-sm sm:text-lg">Sistem Aktif - {kullaniciAdi}</span>
+            {notlarModalAcik && <NotlarModal />}
+        </div>
+        <div className="flex items-center gap-2 sm:gap-3 flex-wrap w-full sm:w-auto">
+    {adminMi && (
+        <>
+            <span className="text-xs text-white bg-green-600 px-3 py-1 rounded-full hidden sm:inline">API: {API_URL}</span>
+            <button onClick={() => setActiveModule('admin')} className="flex items-center gap-1 sm:gap-2 bg-yellow-600 text-white px-2 sm:px-4 py-1.5 sm:py-2 rounded hover:bg-yellow-700 transition text-xs sm:text-base">
+    <Icon name="userGroup" size={16} />
+    <span className="hidden sm:inline">Admin Panel</span>
+</button>
+        </>
+    )}
+{!adminMi && (
+    <button onClick={() => setNotlarModalAcik(true)} className="flex items-center gap-1 sm:gap-2 bg-blue-600 text-white px-2 sm:px-4 py-1.5 sm:py-2 rounded hover:bg-blue-700 transition text-xs sm:text-base">
+        <Icon name="fileText" size={16} />
+        <span className="hidden sm:inline">Notlarım </span>
+        ({notlar.filter(n => (n.kullaniciAdi === kullaniciAdi || n.gonderen === kullaniciAdi) && n.durum !== 'Tamamlandı').length})
     </button>
 )}
-{!adminMi && ( // ✅ YENİ - Admin değilse Notlar butonu göster
-<button onClick={() => setNotlarModalAcik(true)} className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-        <Icon name="fileText" size={18} />Notlarım ({notlar.filter(n => (n.kullaniciAdi === kullaniciAdi || n.gonderen === kullaniciAdi) && n.durum !== 'Tamamlandı').length})
-    </button>
-)}
-                               <button onClick={() => { 
+<button onClick={() => { 
     setGirisYapildi(false); 
     setKullaniciAdi(''); 
     setAdminMi(false);
     localStorage.removeItem('girisYaptimi');
     localStorage.removeItem('kullaniciAdi');
     localStorage.removeItem('adminMi');
-// ✅ YENİ: Yazma yetkilerini de temizliyoruz
-localStorage.removeItem('kullaniciYazmaYetkileri');
-localStorage.removeItem('kullaniciYetkileri');
-localStorage.removeItem('kullaniciOdemeYetkileri'); // ✅ YENİ
-// ✅ YENİ: State'leri de sıfırlıyoruz
-setKullaniciYazmaYetkileri([]);
-setKullaniciYetkileri([]);
-setKullaniciOdemeYetkileri([]); // ✅ YENİ
+    localStorage.removeItem('kullaniciYazmaYetkileri');
+    localStorage.removeItem('kullaniciYetkileri');
+    localStorage.removeItem('kullaniciOdemeYetkileri');
+    setKullaniciYazmaYetkileri([]);
+    setKullaniciYetkileri([]);
+    setKullaniciOdemeYetkileri([]);
 }} 
-className="flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition">
-    <Icon name="logout" size={18} />Çıkış
+className="flex items-center gap-1 sm:gap-2 bg-red-600 text-white px-2 sm:px-4 py-1.5 sm:py-2 rounded hover:bg-red-700 transition text-xs sm:text-base">
+    <Icon name="logout" size={16} />
+    <span className="hidden sm:inline">Çıkış</span>
 </button>
                             </div>
                         </div>
                         
                        <div className="text-center mb-12 bg-white rounded-2xl shadow-2xl p-8">
     {/* Büyük Logo */}
-    <div className="flex justify-center mb-6">
-        <img 
-            src="https://i.hizliresim.com/jm4u7i5.png" 
-            alt="E-Asansör Logo" 
-            className="h-48 w-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-300"
-            style={{maxWidth: '80%'}}
-        />
+    <div className="text-center mb-4 sm:mb-6">
+    <img 
+        src="https://i.hizliresim.com/jm4u7i5.png" 
+        alt="E-Asansör Logo" 
+        className="h-20 sm:h-32 w-auto mx-auto mb-2 sm:mb-3"
+    />
     </div>
     
     {/* Widget'lar - Yan Yana */}
