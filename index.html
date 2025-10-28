@@ -3081,6 +3081,17 @@ const handleDosyaSec = async (e, tip) => {
                 const [ruhsatFormlari, setRuhsatFormlari] = useState({}); 
                 const [acikOdemeId, setAcikOdemeId] = useState(null);
                 const [odemeFormlari, setOdemeFormlari] = useState({});
+                // Modal açıkken body scroll'u engelle
+React.useEffect(() => {
+    if (gosterForm) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'unset';
+    }
+    return () => {
+        document.body.style.overflow = 'unset';
+    };
+}, [gosterForm]);
 
 // 30 gün içinde süresi dolacak asansörleri filtrele
 const get30GunKalanAsansorler = () => {
@@ -5720,7 +5731,6 @@ console.log('📋 İlk satır örneği:', jsonData[0]);
             setGosterForm(false);
             setDuzenlenecekKayit(null);
         }}
-        style={{ overflow: 'auto' }}
     >
         <div 
             className="bg-white rounded-lg shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
