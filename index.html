@@ -7914,12 +7914,14 @@ const kalanGun = Math.floor((ruhsatBitisBaslangic - bugunBaslangic) / (1000 * 60
                            {notlarModalAcik && <NotlarModal />} {/* ✅ YENİ */}
                                 </div>
                             <div className="flex items-center gap-3">
-                                <span className="text-xs text-white bg-green-600 px-3 py-1 rounded-full">API: {API_URL}</span>
-                                {adminMi && (
-    <button onClick={() => setActiveModule('admin')} className="flex items-center gap-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 transition">
-        <Icon name="userGroup" size={18} />Admin Panel
-    </button>
-)}
+    {adminMi && (
+        <>
+            <span className="text-xs text-white bg-green-600 px-3 py-1 rounded-full hidden sm:inline">API: {API_URL}</span>
+            <button onClick={() => setActiveModule('admin')} className="flex items-center gap-2 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 transition">
+                <Icon name="userGroup" size={18} />Admin Panel
+            </button>
+        </>
+    )}
 {!adminMi && ( // ✅ YENİ - Admin değilse Notlar butonu göster
 <button onClick={() => setNotlarModalAcik(true)} className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
         <Icon name="fileText" size={18} />Notlarım ({notlar.filter(n => (n.kullaniciAdi === kullaniciAdi || n.gonderen === kullaniciAdi) && n.durum !== 'Tamamlandı').length})
