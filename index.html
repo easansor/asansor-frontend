@@ -4187,10 +4187,14 @@ const handleYeniKayit = async (yeniKayit) => {
     setYukleniyor(false);
 };
 
-                const handleDuzenle = (kayit) => {
-                    setDuzenlenecekKayit(kayit);
-                    setGosterForm(true);
-                };
+const handleDuzenle = (kayit) => {
+    const currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
+    setDuzenlenecekKayit(kayit);
+    setGosterForm(true);
+    setTimeout(() => {
+        window.scrollTo({ top: currentScrollPos, behavior: 'instant' });
+    }, 0);
+};
 
                 const handleSil = async (id) => {
     if (confirm('Bu kaydı silmek istediğinizden emin misiniz?')) {
@@ -7545,12 +7549,16 @@ const kalanGun = Math.floor((ruhsatBitisBaslangic - bugunBaslangic) / (1000 * 60
                         }
                     };
 
-                    const handleDuzenle = (kayit) => {
-                        setFormData(kayit);
-                        setDuzenlemeModu(true);
-                        setDuzenlenenId(kayit.id);
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    };
+const handleDuzenle = (kayit) => {
+    const currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
+    setFormData(kayit);
+    setDuzenlemeModu(true);
+    setDuzenlenenId(kayit.id);
+    // Scroll pozisyonunu koru
+    setTimeout(() => {
+        window.scrollTo({ top: currentScrollPos, behavior: 'instant' });
+    }, 0);
+};
 
                     const handleSil = async (id) => {
                         if (confirm('Bu kabin siparişini silmek istediğinizden emin misiniz?')) {
